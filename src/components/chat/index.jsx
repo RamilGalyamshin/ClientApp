@@ -24,21 +24,21 @@ const Chat = ({ user, secret }) => {
         {...chatProps}
         style={{ height: "100vh" }}
         renderChatHeader={(chat) => <Header chat={chat} />}
-        renderMessageForm={(props) => {
-          if (chatProps.chat?.title.startsWith("AiChat_")) {
-            return <Ai props={props} activeChat={chatProps.chat} />;
-          }
-          if (chatProps.chat?.title.startsWith("AiCode_")) {
-            return <AiCode props={props} activeChat={chatProps.chat} />;
-          }
-          if (chatProps.chat?.title.startsWith("AiAssist_")) {
-            return <AiAssist props={props} activeChat={chatProps.chat} />;
-          }
+        // renderMessageForm={(props) => {
+        //   if (chatProps.chat?.title.startsWith("AiChat_")) {
+        //     return <Ai props={props} activeChat={chatProps.chat} />;
+        //   }
+        //   if (chatProps.chat?.title.startsWith("AiCode_")) {
+        //     return <AiCode props={props} activeChat={chatProps.chat} />;
+        //   }
+        //   if (chatProps.chat?.title.startsWith("AiAssist_")) {
+        //     return <AiAssist props={props} activeChat={chatProps.chat} />;
+        //   }
 
-          return (
-            <StandardMessageForm props={props} activeChat={chatProps.chat} />
-          );
-        }}
+        //   return (
+        //     // <StandardMessageForm props={props} activeChat={chatProps.chat} />
+        //   );
+        // }}
       />
     </div>
   );
