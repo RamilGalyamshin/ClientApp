@@ -1,20 +1,23 @@
-import React from 'react';
+import React from "react";
 import { ChatBubbleLeftRightIcon, DevicePhoneMobileIcon } from "@heroicons/react/24/solid";
 
-const CustomHeader = ({ chat }) =>{
-    return (
-        <div className='chat-header'>
-            <div className='flexbetween'>
-                <ChatBubbleLeftRightIcon className ="icon-chat"/>
-                <h3 className='header-text'>{chat.title}</h3>
-            </div>
-            <div className='flexbetween'>
-                <DevicePhoneMobileIcon className='icon-phone'/>
-                <p className='header-text'>{chat.description}</p>
-            </div>
-        </div>
-    )
-}
+const CustomerHeader = ({ chat }) => {
+  return (
+    <div className="chat-header">
+      <div className="flexbetween">
+        <ChatBubbleLeftRightIcon className="icon-chat" />
+        <h3 className="header-text">{chat.title}</h3>
+      </div>
+      <div className="flexbetween">
+        <DevicePhoneMobileIcon className="icon-phone" />
+        {chat.description !== "⬅️ ⬅️ ⬅️" ? (
+          <p className="header-text">{chat.description}</p>
+        ) : (
+          <p className="header-text">no chat selected</p>
+        )}
+      </div>
+    </div>
+  );
+};
 
-export default CustomHeader
-
+export default CustomerHeader;
