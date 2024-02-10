@@ -1,5 +1,5 @@
 import React from "react";
-import { ChatBubbleLeftRightIcon, DevicePhoneMobileIcon } from "@heroicons/react/24/solid";
+import { ChatBubbleLeftRightIcon, PhoneIcon } from "@heroicons/react/24/solid";
 
 const CustomerHeader = ({ chat }) => {
   return (
@@ -9,7 +9,7 @@ const CustomerHeader = ({ chat }) => {
         <h3 className="header-text">{chat.title}</h3>
       </div>
       <div className="flexbetween">
-        <DevicePhoneMobileIcon className="icon-phone" />
+        <PhoneIcon className="icon-phone" />
         {chat.description !== "⬅️ ⬅️ ⬅️" ? (
           <p className="header-text">{chat.description}</p>
         ) : (

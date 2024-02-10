@@ -1,18 +1,15 @@
+import { usePostAiCodeMutation } from "@/state/api";
 import React, { useState } from "react";
 import MessageFormUI from "./MessageFormUI";
 
-const StandardMessageForm = ({ props, activeChat }) => {
+const AiCode = ({ props, activeChat }) => {
   const [message, setMessage] = useState("");
   const [attachment, setAttachment] = useState("");
-  
+  const [triggerCode] = usePostAiCodeMutation();
+
   const handleChange = (e) => setMessage(e.target.value);
 
   const handleSubmit = async () => {
-    if (!activeChat || !activeChat.id) {
-      console.error("Active chat or its ID is undefined");
-      return; // Не продолжаем выполнение, если активный чат или его ID не определены
-    }
-
     const date = new Date()
       .toISOString()
       .replace("T", " ")
@@ -27,6 +24,7 @@ const StandardMessageForm = ({ props, activeChat }) => {
     };
 
     props.onSubmit(form);
+    triggerCode(form);
     setMessage("");
     setAttachment("");
   };
@@ -41,4 +39,4 @@ const StandardMessageForm = ({ props, activeChat }) => {
   );
 };
 
-export default StandardMessageForm;
+export default AiCode;
